@@ -80,4 +80,49 @@ int main() {
                 scanf("%d", &userInp);
                 binTree = deleteNode(binTree, userInp, &successFlag);
                 if (successFlag) {
-                   
+                    printf("Delete Key `%d` successfully!\n", userInp);
+                }
+                printf("Inorder traversal: \n");
+                inTraversal(binTree);
+                printf("\n");
+                break;
+
+            case 3:
+                printf("3. Find a Key value\n");
+                printf("Enter a Key value you want to find >> ");
+                scanf("%d", &userInp);
+                findNode(binTree, userInp);
+                printf("Inorder traversal: \n");
+                inTraversal(binTree);
+                break;
+
+            case 4:
+                printf("4. Find the nth smallest key value\n");
+                printf("Enter the kth smallest Key you want to find >> ");
+                scanf("%d", &userInp);
+                kthSmall = kthSmallest(binTree, userInp, countNum);
+                if (kthSmall == -1) {
+                    printf("Sorry! `%dth` smallest number is NOT in the tree!\n", userInp);
+                } else {
+                    printf("kth smallest: %d, Key: %d\n", userInp, kthSmall);
+                }
+                printf("Inorder traversal: \n");
+                inTraversal(binTree);
+                break;
+
+            case 5:
+                printf("5. Output sorting results of Key values (from min to max)\n");
+                printf("Results: \n");
+                inTraversal(binTree);
+                break;
+
+            default:
+                break;
+        }
+        printf("\n\n\n");
+    }
+
+    printf("\n");
+    system("pause");
+    return 0;
+}
